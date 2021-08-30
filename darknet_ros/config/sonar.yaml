@@ -1,0 +1,10 @@
+yolo_model:
+  config_file:
+    name: sonar2.cfg
+  weight_file:
+    name: sonar.weights
+  threshold:
+    value: 0.3
+  detection_classes:
+    names:
+      - detection
