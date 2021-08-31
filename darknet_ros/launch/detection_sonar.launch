@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+
+  <include file="$(find darknet_ros)/launch/sonar_yolo.launch"/>
+
+  <node pkg="minau_tools" type="sonar_detection.py" name="sonar_detection" output="screen"/>
+
+</launch>
