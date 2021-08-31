@@ -1,6 +1,6 @@
 yolo_model:
   config_file:
-    name: sonar2.cfg
+    name: sonar.cfg
   weight_file:
     name: sonar.weights
   threshold:
