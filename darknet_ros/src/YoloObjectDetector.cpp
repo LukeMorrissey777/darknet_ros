@@ -238,17 +238,17 @@ bool YoloObjectDetector::isCheckingForObjects() const {
   return (ros::ok() && checkForObjectsActionServer_->isActive() && !checkForObjectsActionServer_->isPreemptRequested());
 }
 
-bool YoloObjectDetector::publishDetectionImage(const cv::Mat& detectionImage) {
-  if (detectionImagePublisher_.getNumSubscribers() < 1) return false;
-  cv_bridge::CvImage cvImage;
-  cvImage.header.stamp = ros::Time::now();
-  cvImage.header.frame_id = "detection_image";
-  cvImage.encoding = sensor_msgs::image_encodings::BGR8;
-  cvImage.image = detectionImage;
-  detectionImagePublisher_.publish(*cvImage.toImageMsg());
-  ROS_DEBUG("Detection image has been published.");
-  return true;
-}
+// bool YoloObjectDetector::publishDetectionImage(const cv::Mat& detectionImage) {
+//   if (detectionImagePublisher_.getNumSubscribers() < 1) return false;
+//   cv_bridge::CvImage cvImage;
+//   cvImage.header.stamp = ros::Time::now();
+//   cvImage.header.frame_id = "detection_image";
+//   cvImage.encoding = sensor_msgs::image_encodings::BGR8;
+//   cvImage.image = detectionImage;
+//   detectionImagePublisher_.publish(*cvImage.toImageMsg());
+//   ROS_DEBUG("Detection image has been published.");
+//   return true;
+// }
 
 // double YoloObjectDetector::getWallTime()
 // {
@@ -537,10 +537,10 @@ bool YoloObjectDetector::isNodeRunning(void) {
 
 void* YoloObjectDetector::publishInThread() {
   // Publish image.
-  cv::Mat cvImage = disp_;
-  if (!publishDetectionImage(cv::Mat(cvImage))) {
-    ROS_DEBUG("Detection image has not been broadcasted.");
-  }
+  // cv::Mat cvImage = disp_;
+  // if (!publishDetectionImage(cv::Mat(cvImage))) {
+  //   ROS_DEBUG("Detection image has not been broadcasted.");
+  // }
 
   // Publish bounding boxes and detection result.
   int num = roiBoxes_[0].num;

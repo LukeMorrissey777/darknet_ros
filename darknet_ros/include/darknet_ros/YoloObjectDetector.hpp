@@ -126,7 +126,7 @@ class YoloObjectDetector {
    * Publishes the detection image.
    * @return true if successful.
    */
-  bool publishDetectionImage(const cv::Mat& detectionImage);
+  // bool publishDetectionImage(const cv::Mat& detectionImage);
 
   //! Using.
   using CheckForObjectsActionServer = actionlib::SimpleActionServer<darknet_ros_msgs::CheckForObjectsAction>;
