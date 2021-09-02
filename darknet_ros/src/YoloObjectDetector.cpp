@@ -500,11 +500,11 @@ void YoloObjectDetector::yolo() {
     if (!demoPrefix_) {
       fps_ = 1. / (what_time_is_it_now() - demoTime_);
       demoTime_ = what_time_is_it_now();
-      if (viewImage_) {
-        displayInThread(0);
-      } else {
-        generate_image(buff_[(buffIndex_ + 1) % 3], disp_);
-      }
+      // if (viewImage_) {
+      //   displayInThread(0);
+      // } else {
+      //   generate_image(buff_[(buffIndex_ + 1) % 3], disp_);
+      // }
       publishInThread();
     } else {
       char name[256];
